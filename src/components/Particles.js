@@ -25,9 +25,9 @@ export default function Particles() {
         this.y = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 3 + 1;
-        this.opacity = Math.random() * 0.5 + 0.2;
-        this.color = Math.random() > 0.5 ? "#3B82F6" : "#10B981"; // Blue or green
+        this.size = Math.random() * 2 + 0.8; // Reduced size range
+        this.opacity = Math.random() * 0.6 + 0.3; // Increased opacity for better visibility
+        this.color = Math.random() > 0.5 ? "#ffffff" : "#ffffff"; // White or light blue
       }
 
       update() {
@@ -56,7 +56,7 @@ export default function Particles() {
 
     // Create particles
     const particles = [];
-    const particleCount = 50;
+    const particleCount = 120; // Increased from 50 to 120
 
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
@@ -80,10 +80,11 @@ export default function Particles() {
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < 150) {
+            // Increased connection distance from 100 to 150
             ctx.save();
-            ctx.globalAlpha = ((100 - distance) / 100) * 0.3;
-            ctx.strokeStyle = "#3B82F6";
+            ctx.globalAlpha = ((150 - distance) / 150) * 0.4; // Increased opacity from 0.3 to 0.4
+            ctx.strokeStyle = "#ffffff";
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);

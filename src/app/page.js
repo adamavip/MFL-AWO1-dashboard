@@ -5,8 +5,21 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url(/field-landscape.jpg)",
+          }}
+        ></div>
+
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Gradient overlay for branding */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20"></div>
+
         <Particles />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-green-600/10"></div>
         <div
           className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
           style={{ zIndex: 2 }}
@@ -28,13 +41,13 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Welcome to{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                   MFL Dashboard
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto leading-relaxed">
                 The AoW1 Solutions Dashboard is a digital product of the
                 Multifunctional Landscapes Science Program. It is designed to
                 showcase and track the development, testing, adoption, and
@@ -61,8 +74,8 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">1,234</h3>
-                <p className="text-gray-600">Innovations Tracked</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">15</h3>
+                <p className="text-gray-600">Countries Targeted</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -81,8 +94,8 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">56</h3>
-                <p className="text-gray-600">Active Projects</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">2 M</h3>
+                <p className="text-gray-600">Farmers Targeted</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -101,8 +114,8 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">87%</h3>
-                <p className="text-gray-600">Success Rate</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">4M</h3>
+                <p className="text-gray-600">Hectares To Restore by 2030</p>
               </div>
             </div>
           </div>
