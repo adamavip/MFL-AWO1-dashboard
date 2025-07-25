@@ -1,4 +1,5 @@
 import Particles from "../components/Particles";
+import "./globals.css";
 
 export default function Home() {
   return (
