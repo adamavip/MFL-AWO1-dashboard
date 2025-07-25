@@ -1,11 +1,14 @@
 "use client";
+import { useState, useCallback } from "react";
 import { useCountries } from "@/context/CountriesContext";
 import CountriesMap from "@/components/CountriesMap";
-import Card from "@/components/Card";
-import WordCloudComp from "@/components/WordCloud";
+import PhraseProgressBar from "@/components/PhraseProgressBar";
+import Sidebar from "@/components/Sidebar";
 
 export default function Overview() {
   const { allCountries, loading, error, getStatistics } = useCountries();
+  const [filteredData, setFilteredData] = useState(allCountries);
+
   console.log(allCountries);
 
   // Get real statistics from the data
@@ -29,33 +32,6 @@ export default function Overview() {
       },
     ];
   })();
-
-  const recentActivities = [
-    {
-      id: 1,
-      activity: "New farm registration",
-      time: "2 hours ago",
-      type: "info",
-    },
-    {
-      id: 2,
-      activity: "Harvest completed",
-      time: "4 hours ago",
-      type: "success",
-    },
-    {
-      id: 3,
-      activity: "Irrigation system maintenance",
-      time: "1 day ago",
-      type: "warning",
-    },
-    {
-      id: 4,
-      activity: "Data sync completed",
-      time: "2 days ago",
-      type: "info",
-    },
-  ];
 
   // Process data for Card components
   const processCardData = (data, field) => {
@@ -91,8 +67,12 @@ export default function Overview() {
       .sort((a, b) => b.value - a.value);
   };
 
-  const innovationsData = processCardData(allCountries, "Innovations");
-  const challengesData = processCardData(allCountries, "Challenges");
+  const innovationsData = processCardData(filteredData, "Innovations");
+  const challengesData = processCardData(filteredData, "Challenges");
+
+  const handleFiltersChange = useCallback((newFilteredData) => {
+    setFilteredData(newFilteredData);
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -101,100 +81,66 @@ export default function Overview() {
         <p className="text-gray-600 mt-2">Statistics</p>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {stats.map((stat) => (
-          <div key={stat.name} className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">{stat.name}</p>
-                <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-              </div>
+      {/* Main Content with Sidebar */}
+      <div className="lg:ml-80">
+        {/* Sidebar */}
+        <Sidebar
+          allCountries={allCountries}
+          onFiltersChange={handleFiltersChange}
+          loading={loading}
+        />
+
+        {/* Main Content */}
+        <div className="w-full">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {stats.map((stat) => (
               <div
-                className={`text-sm font-medium ${
-                  stat.changeType === "positive"
-                    ? "text-green-600"
-                    : "text-red-600"
-                }`}
+                key={stat.name}
+                className="bg-white p-6 rounded-lg shadow-md"
               >
-                {stat.change}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Map Section */}
-      <div className="mb-8">
-        <CountriesMap data={allCountries} loading={loading} />
-      </div>
-
-      {/* Interactive Cards Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        <WordCloudComp
-          data={allCountries}
-          type="innovations"
-          loading={loading}
-        />
-        <WordCloudComp
-          data={allCountries}
-          type="challenges"
-          loading={loading}
-        />
-      </div>
-
-      {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Quick Actions */}
-        <div className="lg:col-span-1">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Quick Actions
-            </h2>
-            <div className="space-y-3">
-              <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-                Add New Farm
-              </button>
-              <button className="w-full bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors">
-                Generate Report
-              </button>
-              <button className="w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors">
-                Export Data
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Recent Activities */}
-        <div className="lg:col-span-2">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Recent Activities
-            </h2>
-            <div className="space-y-4">
-              {recentActivities.map((activity) => (
-                <div
-                  key={activity.id}
-                  className="flex items-center space-x-3 p-3 bg-gray-50 rounded-md"
-                >
-                  <div
-                    className={`w-2 h-2 rounded-full ${
-                      activity.type === "success"
-                        ? "bg-green-500"
-                        : activity.type === "warning"
-                        ? "bg-yellow-500"
-                        : "bg-blue-500"
-                    }`}
-                  ></div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900">
-                      {activity.activity}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">
+                      {stat.name}
                     </p>
-                    <p className="text-xs text-gray-500">{activity.time}</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {stat.value}
+                    </p>
+                  </div>
+                  <div
+                    className={`text-sm font-medium ${
+                      stat.changeType === "positive"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
+                  >
+                    {stat.change}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Map Section */}
+          <div className="mb-8">
+            <CountriesMap data={filteredData} loading={loading} />
+          </div>
+
+          {/* Progress Bars Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <PhraseProgressBar
+              title="Innovations"
+              data={innovationsData}
+              loading={loading}
+              color="blue"
+            />
+            <PhraseProgressBar
+              title="Challenges"
+              data={challengesData}
+              loading={loading}
+              color="red"
+            />
           </div>
         </div>
       </div>

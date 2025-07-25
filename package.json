@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@isoterik/react-word-cloud": "^1.2.0",
+    "@nivo/sankey": "^0.99.0",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.52.1",
+    "gridjs": "^6.2.0",
+    "gridjs-react": "^6.1.1",
     "leaflet": "^1.9.4",
     "next": "15.4.3",
     "particles.js": "^2.0.0",

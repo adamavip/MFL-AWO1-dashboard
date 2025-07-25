@@ -13,11 +13,16 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="bg-white shadow-lg border-b">
+    <nav className="fixed top-0 left-0 right-0 bg-white shadow-lg border-b z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex items-center space-x-3">
+              <img
+                src="/CGIAR-logo.svg"
+                alt="CGIAR Logo"
+                className="h-8 w-auto"
+              />
               <h1 className="text-xl font-bold text-gray-900">MFL Dashboard</h1>
             </div>
           </div>

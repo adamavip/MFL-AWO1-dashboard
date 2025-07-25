@@ -334,9 +334,9 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                Get a comprehensive view of your agricultural innovations with
-                real-time metrics, performance indicators, and quick insights to
-                monitor your project's health and impact.
+                Get a comprehensive view of your agricultural innovations that
+                have been tested, adopted, and scaled in the Multifunctional
+                Landscapes Science Program and the challenges they addressed.
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex space-x-2">
@@ -394,9 +394,8 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                Dive deep into detailed analytics with interactive charts, trend
-                analysis, and predictive insights to optimize your agricultural
-                innovations and maximize impact.
+                Dive deep into analytics and see how the innovations are related
+                to the challenges they address.
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex space-x-2">
@@ -425,27 +424,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom CTA Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-green-600 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to explore agricultural innovations?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Start exploring your data today and unlock the full potential of
-            your agricultural innovations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-              Get Started
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-              Learn More
-            </button>
           </div>
         </div>
       </div>
