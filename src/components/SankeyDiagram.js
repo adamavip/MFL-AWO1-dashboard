@@ -37,7 +37,7 @@ export default function SankeyDiagram({ data }) {
         nodeOpacity={1}
         nodeHoverOthersOpacity={0.35}
         nodeThickness={18}
-        nodeSpacing={28}
+        nodeSpacing={34}
         nodeBorderWidth={1}
         nodeBorderRadius={4}
         nodeBorderColor={{
@@ -199,29 +199,6 @@ export default function SankeyDiagram({ data }) {
           }
           return null;
         }}
-        legends={[
-          {
-            anchor: "bottom-right",
-            direction: "column",
-            translateX: 180,
-            translateY: -30,
-            itemsSpacing: 10,
-            itemDirection: "left-to-right",
-            itemWidth: 140,
-            itemHeight: 22,
-            itemTextColor: "#374151",
-            symbolSize: 22,
-            symbolShape: "square",
-            effects: [
-              {
-                on: "hover",
-                style: {
-                  itemTextColor: "#000",
-                },
-              },
-            ],
-          },
-        ]}
       />
     </div>
   );
