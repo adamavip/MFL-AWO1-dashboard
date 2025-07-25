@@ -2,7 +2,7 @@ import Particles from "../components/Particles";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Background Image */}
@@ -58,10 +58,10 @@ export default function Home() {
 
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl mb-4">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-blue-600 dark:text-blue-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -74,14 +74,18 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">15</h3>
-                <p className="text-gray-600">Countries Targeted</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  15
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Countries Targeted
+                </p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-xl mb-4">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl mb-4">
                   <svg
-                    className="w-6 h-6 text-green-600"
+                    className="w-6 h-6 text-green-600 dark:text-green-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -94,14 +98,18 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">2 M</h3>
-                <p className="text-gray-600">Farmers Targeted</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  2 M
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Farmers Targeted
+                </p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl mb-4">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-xl mb-4">
                   <svg
-                    className="w-6 h-6 text-purple-600"
+                    className="w-6 h-6 text-purple-600 dark:text-purple-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -114,8 +122,12 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">4M</h3>
-                <p className="text-gray-600">Hectares To Restore by 2030</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  4M
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Hectares To Restore by 2030
+                </p>
               </div>
             </div>
           </div>
@@ -124,10 +136,12 @@ export default function Home() {
 
       {/* Purpose Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-white rounded-3xl shadow-2xl p-12 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-12 border border-gray-100 dark:border-gray-700">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Purpose</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Purpose
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
               The dashboard will systematize data emerging from co-designed
               solution bundles, mapping their relevance, uptake, and early
               outcomes across diverse agroecological contexts. It will act as a
@@ -142,17 +156,17 @@ export default function Home() {
       {/* Core Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Core Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Discover the powerful capabilities that make our dashboard an
             essential tool for agricultural innovation
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
             <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-6">
               <svg
                 className="w-8 h-8 text-blue-600"
@@ -177,10 +191,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-2xl mb-6">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-2xl mb-6">
               <svg
-                className="w-8 h-8 text-green-600"
+                className="w-8 h-8 text-green-600 dark:text-green-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -193,19 +207,19 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Advanced Filtering
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Filters by agroecological zone, solution type, actor group, or
               ecosystem service for precise data exploration.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-2xl mb-6">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-2xl mb-6">
               <svg
-                className="w-8 h-8 text-purple-600"
+                className="w-8 h-8 text-purple-600 dark:text-purple-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -218,19 +232,19 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Inclusivity Tracking
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Tags and evidence on inclusivity (youth, women, Indigenous
               Peoples) to ensure comprehensive impact assessment.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-yellow-100 rounded-2xl mb-6">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center justify-center w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-2xl mb-6">
               <svg
-                className="w-8 h-8 text-yellow-600"
+                className="w-8 h-8 text-yellow-600 dark:text-yellow-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -243,19 +257,19 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Performance Frameworks
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Linked indicators from AoW6 performance frameworks (biodiversity,
               productivity, resilience) for comprehensive analysis.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-6">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center justify-center w-16 h-16 bg-red-100 dark:bg-red-900 rounded-2xl mb-6">
               <svg
-                className="w-8 h-8 text-red-600"
+                className="w-8 h-8 text-red-600 dark:text-red-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -268,10 +282,10 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Stories of Change
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Stories of change and stakeholder feedback loops to enable
               adaptive learning and continuous improvement.
             </p>

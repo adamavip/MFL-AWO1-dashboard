@@ -121,21 +121,25 @@ export default function Analytics() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Analytics</h1>
-        <p className="text-gray-600 mt-2">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          Analytics
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300 mt-2">
           Data analysis and relationship visualization
         </p>
       </div>
 
       {/* Download Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8 border border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900">Download Data</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Download Data
+          </h2>
           <div className="flex items-center space-x-4">
             <select
               value={selectedFormat}
               onChange={(e) => setSelectedFormat(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             >
               <option value="csv">CSV Format</option>
               <option value="json">JSON Format</option>
@@ -149,27 +153,29 @@ export default function Analytics() {
             </button>
           </div>
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
           Download the complete dataset in {selectedFormat.toUpperCase()} format
         </p>
       </div>
 
       {/* Data Table */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8 border border-gray-200 dark:border-gray-700">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
           Complete Dataset
         </h2>
         <DataTable data={allCountries} loading={loading} error={error} />
       </div>
 
       {/* Sankey Diagram */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
           Innovation-Challenge Relationships
         </h2>
         {loading && (
           <div className="flex items-center justify-center py-8">
-            <p className="text-gray-600">Loading relationship data...</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Loading relationship data...
+            </p>
           </div>
         )}
         {error && (
@@ -180,20 +186,22 @@ export default function Analytics() {
         {!loading && !error && sankeyData.nodes.length > 0 && (
           <div>
             <div className="mb-4">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 This diagram shows the relationships between innovations and the
                 challenges they address. The width of each connection represents
                 the frequency of that relationship.
               </p>
             </div>
-            <div className="h-[700px] bg-gray-50 rounded-lg p-4">
+            <div className="h-[700px] bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
               <SankeyDiagram data={sankeyData} />
             </div>
           </div>
         )}
         {!loading && !error && sankeyData.nodes.length === 0 && (
           <div className="flex items-center justify-center py-8">
-            <p className="text-gray-600">No relationship data available</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              No relationship data available
+            </p>
           </div>
         )}
       </div>

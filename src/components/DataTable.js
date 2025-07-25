@@ -15,7 +15,7 @@ export default function DataTable({ data, loading, error }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-gray-600">Loading data...</p>
+        <p className="text-gray-600 dark:text-gray-300">Loading data...</p>
       </div>
     );
   }
@@ -23,7 +23,7 @@ export default function DataTable({ data, loading, error }) {
   if (error) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-red-600">Error: {error}</p>
+        <p className="text-red-600 dark:text-red-400">Error: {error}</p>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function DataTable({ data, loading, error }) {
   if (!data || data.length === 0) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-gray-600">No data available</p>
+        <p className="text-gray-600 dark:text-gray-300">No data available</p>
       </div>
     );
   }
@@ -102,18 +102,6 @@ export default function DataTable({ data, loading, error }) {
         style={{
           table: {
             width: "100%",
-          },
-          th: {
-            backgroundColor: "#f9fafb",
-            color: "#374151",
-            fontWeight: "600",
-            fontSize: "12px",
-            textTransform: "uppercase",
-            letterSpacing: "0.05em",
-          },
-          td: {
-            fontSize: "14px",
-            color: "#374151",
           },
         }}
         language={{

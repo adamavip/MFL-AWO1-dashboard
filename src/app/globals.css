@@ -13,12 +13,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark mode styles using class-based approach */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
+
+/* Remove the media query that conflicts with manual toggle */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -34,24 +35,24 @@ body {
 }
 
 .custom-grid-thead {
-  @apply bg-gray-50;
+  @apply bg-gray-50 dark:bg-gray-800;
 }
 
 .custom-grid-th {
-  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200;
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700;
 }
 
 .custom-grid-tbody {
-  @apply bg-white divide-y divide-gray-200;
+  @apply bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700;
 }
 
 .custom-grid-td {
-  @apply px-6 py-4 text-sm text-gray-900 border-b border-gray-100;
+  @apply px-6 py-4 text-sm text-gray-900 dark:text-gray-100 border-b border-gray-100 dark:border-gray-800;
 }
 
 /* Grid.js Search and Pagination */
 .gridjs-wrapper {
-  @apply border border-gray-200 rounded-lg shadow-sm;
+  @apply border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm;
 }
 
 .gridjs-table {
@@ -63,7 +64,7 @@ body {
 }
 
 .gridjs-search-input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400;
 }
 
 .gridjs-pagination {
@@ -71,7 +72,7 @@ body {
 }
 
 .gridjs-pagination .gridjs-pages button {
-  @apply px-3 py-1 mx-1 border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply px-3 py-1 mx-1 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
 }
 
 .gridjs-pagination .gridjs-pages button.gridjs-currentPage {
@@ -79,7 +80,7 @@ body {
 }
 
 .gridjs-pagination .gridjs-pages button:hover:not(.gridjs-currentPage) {
-  @apply bg-gray-50;
+  @apply bg-gray-50 dark:bg-gray-700;
 }
 
 .gridjs-pagination .gridjs-pages button:disabled {

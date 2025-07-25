@@ -77,8 +77,10 @@ export default function Overview() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Overview</h1>
-        <p className="text-gray-600 mt-2">Statistics</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          Overview
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300 mt-2">Statistics</p>
       </div>
 
       {/* Main Content with Sidebar */}
@@ -97,14 +99,14 @@ export default function Overview() {
             {stats.map((stat) => (
               <div
                 key={stat.name}
-                className="bg-white p-6 rounded-lg shadow-md"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                       {stat.name}
                     </p>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="text-2xl font-bold text-gray-900 dark:text-white">
                       {stat.value}
                     </p>
                   </div>

@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
 import { CountriesProvider } from "@/context/CountriesContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -17,110 +18,140 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                (function() {
+                  try {
+                    var theme = localStorage.getItem('theme');
+                    if (theme === 'dark') {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      // Default to light mode
+                      document.documentElement.classList.remove('dark');
+                      // Only set localStorage if there's no saved preference
+                      if (!theme) {
+                        localStorage.setItem('theme', 'light');
+                      }
+                    }
+                  } catch (e) {
+                    // If there's an error, default to light mode
+                    document.documentElement.classList.remove('dark');
+                  }
+                })();
+              `,
+          }}
+        />
+      </head>
       <body className={`${roboto.variable} font-roboto antialiased`}>
-        <CountriesProvider>
-          <Navigation />
-          <main className="min-h-screen bg-gray-50 pt-16">{children}</main>
+        <ThemeProvider>
+          <CountriesProvider>
+            <Navigation />
+            <main className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-16">
+              {children}
+            </main>
 
-          {/* Bottom CTA Section */}
-          <footer className="bg-gradient-to-r from-blue-600 to-green-600 text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                {/* Logo and Description */}
-                <div className="flex flex-col items-center md:items-start space-y-4">
-                  <img
-                    src="/CGIAR-logo.svg"
-                    alt="CGIAR Logo"
-                    className="h-12 w-auto filter brightness-0 invert"
-                  />
-                  <p className="text-center md:text-left text-blue-100 max-w-md">
-                    Advancing agricultural research for development through
-                    innovative solutions and sustainable practices.
-                  </p>
-                </div>
+            {/* Bottom CTA Section */}
+            <footer className="bg-gradient-to-r from-blue-600 to-green-600 text-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                  {/* Logo and Description */}
+                  <div className="flex flex-col items-center md:items-start space-y-4">
+                    <img
+                      src="/CGIAR-logo.svg"
+                      alt="CGIAR Logo"
+                      className="h-12 w-auto filter brightness-0 invert"
+                    />
+                    <p className="text-center md:text-left text-blue-100 max-w-md">
+                      Advancing agricultural research for development through
+                      innovative solutions and sustainable practices.
+                    </p>
+                  </div>
 
-                {/* Quick Links */}
-                <div className="flex flex-col items-center md:items-start space-y-4">
-                  <h3 className="text-lg font-semibold">Quick Links</h3>
-                  <div className="flex flex-col space-y-2 text-center md:text-left">
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors"
-                    >
-                      About CGIAR
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors"
-                    >
-                      Research Programs
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors"
-                    >
-                      Publications
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors"
-                    >
-                      Contact Us
-                    </a>
+                  {/* Quick Links */}
+                  <div className="flex flex-col items-center md:items-start space-y-4">
+                    <h3 className="text-lg font-semibold">Quick Links</h3>
+                    <div className="flex flex-col space-y-2 text-center md:text-left">
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors"
+                      >
+                        About CGIAR
+                      </a>
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors"
+                      >
+                        Research Programs
+                      </a>
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors"
+                      >
+                        Publications
+                      </a>
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors"
+                      >
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="flex flex-col items-center md:items-end space-y-4">
+                    <h3 className="text-lg font-semibold text-center md:text-right">
+                      Get Involved
+                    </h3>
+                    <p className="text-blue-100 text-center md:text-right max-w-xs">
+                      Join us in transforming agriculture for a sustainable
+                      future.
+                    </p>
+                    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                      <button className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        Learn More
+                      </button>
+                      <button className="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        Contact Us
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Call to Action */}
-                <div className="flex flex-col items-center md:items-end space-y-4">
-                  <h3 className="text-lg font-semibold text-center md:text-right">
-                    Get Involved
-                  </h3>
-                  <p className="text-blue-100 text-center md:text-right max-w-xs">
-                    Join us in transforming agriculture for a sustainable
-                    future.
-                  </p>
-                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                    <button className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                      Learn More
-                    </button>
-                    <button className="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                      Contact Us
-                    </button>
+                {/* Bottom Bar */}
+                <div className="mt-8 pt-8 border-t border-blue-500">
+                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p className="text-blue-100 text-sm">
+                      © 2025 CGIAR. All rights reserved.
+                    </p>
+                    <div className="flex space-x-6">
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors text-sm"
+                      >
+                        Privacy Policy
+                      </a>
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors text-sm"
+                      >
+                        Terms of Service
+                      </a>
+                      <a
+                        href="#"
+                        className="text-blue-100 hover:text-white transition-colors text-sm"
+                      >
+                        Accessibility
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Bottom Bar */}
-              <div className="mt-8 pt-8 border-t border-blue-500">
-                <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                  <p className="text-blue-100 text-sm">
-                    © 2024 CGIAR. All rights reserved.
-                  </p>
-                  <div className="flex space-x-6">
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors text-sm"
-                    >
-                      Privacy Policy
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors text-sm"
-                    >
-                      Terms of Service
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-100 hover:text-white transition-colors text-sm"
-                    >
-                      Accessibility
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </CountriesProvider>
+            </footer>
+          </CountriesProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
