@@ -1,4 +1,9 @@
+"use client";
+
+import { useCountries } from "@/context/CountriesContext";
+
 export default function Analytics() {
+  const { allCountries, loading, error, getStatistics } = useCountries();
   const chartData = [
     { month: "Jan", yield: 120, efficiency: 85 },
     { month: "Feb", yield: 135, efficiency: 88 },
@@ -175,6 +180,71 @@ export default function Analytics() {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* Agricultural Data Section */}
+      <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          Agricultural Data
+        </h2>
+        {loading && (
+          <p className="text-gray-600">Loading agricultural data...</p>
+        )}
+        {error && <p className="text-red-600">Error: {error}</p>}
+        {!loading && !error && (
+          <div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div className="text-center p-4 bg-blue-50 rounded-lg">
+                <div className="text-2xl font-bold text-blue-600">
+                  {getStatistics.totalEntries}
+                </div>
+                <div className="text-sm text-gray-600">Total Entries</div>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <div className="text-2xl font-bold text-green-600">
+                  {getStatistics.uniqueCountries}
+                </div>
+                <div className="text-sm text-gray-600">Countries</div>
+              </div>
+              <div className="text-center p-4 bg-purple-50 rounded-lg">
+                <div className="text-2xl font-bold text-purple-600">
+                  {getStatistics.uniqueFarmers}
+                </div>
+                <div className="text-sm text-gray-600">Farmers</div>
+              </div>
+              <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                <div className="text-2xl font-bold text-yellow-600">
+                  {getStatistics.uniqueInnovations}
+                </div>
+                <div className="text-sm text-gray-600">Innovations</div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {allCountries.slice(0, 9).map((entry, index) => (
+                <div
+                  key={entry.ID || index}
+                  className="p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    {entry.Country}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-1">
+                    <span className="font-medium">Farmer:</span> {entry.Farmers}
+                  </p>
+                  <p className="text-sm text-gray-600 mb-1">
+                    <span className="font-medium">Innovation:</span>{" "}
+                    {entry.Innovations}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    <span className="font-medium">Challenge:</span>{" "}
+                    {entry.Challenges}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Filter and Export Options */}
