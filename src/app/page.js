@@ -1,6 +1,9 @@
 import Particles from "../components/Particles";
 import "./globals.css";
 
+// the component will fill the height/width of its parent container, edit the CSS to change this
+// the options below are the default values
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -21,6 +24,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20"></div>
 
         <Particles />
+
         <div
           className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
           style={{ zIndex: 2 }}
@@ -42,13 +46,13 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight font-playfair">
                 Welcome to{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                   MFL Dashboard
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto leading-relaxed font-quicksand">
                 The AoW1 Solutions Dashboard is a digital product of the
                 Multifunctional Landscapes Science Program. It is designed to
                 showcase and track the development, testing, adoption, and
@@ -75,10 +79,10 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-playfair">
                   15
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 font-quicksand">
                   Countries Targeted
                 </p>
               </div>
@@ -99,10 +103,10 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-playfair">
                   2 M
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 font-quicksand">
                   Farmers Targeted
                 </p>
               </div>
@@ -123,10 +127,10 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-playfair">
                   4M
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 font-quicksand">
                   Hectares To Restore by 2030
                 </p>
               </div>
@@ -139,10 +143,10 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-12 border border-gray-100 dark:border-gray-700">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-playfair">
               Purpose
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-quicksand">
               The dashboard will systematize data emerging from co-designed
               solution bundles, mapping their relevance, uptake, and early
               outcomes across diverse agroecological contexts. It will act as a
@@ -157,10 +161,10 @@ export default function Home() {
       {/* Core Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-playfair">
             Core Features
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-quicksand">
             Discover the powerful capabilities that make our dashboard an
             essential tool for agricultural innovation
           </p>
@@ -183,10 +187,10 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 font-playfair">
               Visual Landscape Mapping
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 font-quicksand">
               Visual landscape map of tested, adopted, or scaled innovation
               bundles with interactive filtering capabilities.
             </p>
@@ -208,10 +212,10 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 font-playfair">
               Advanced Filtering
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-gray-300 font-quicksand">
               Filters by agroecological zone, solution type, actor group, or
               ecosystem service for precise data exploration.
             </p>

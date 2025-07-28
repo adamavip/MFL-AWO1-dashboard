@@ -20,6 +20,9 @@ export default function Navigation() {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center space-x-3">
               <img src="/MFL-logo.jpg" alt="MFL Logo" className="h-8 w-auto" />
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white font-playfair">
+                MFL Dashboard
+              </h1>
             </div>
           </div>
           <div className="flex items-center space-x-6">

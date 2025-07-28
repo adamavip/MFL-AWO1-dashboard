@@ -1,13 +1,24 @@
-import { Roboto } from "next/font/google";
+import { Playfair_Display, Quicksand, Roboto } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
 import { CountriesProvider } from "@/context/CountriesContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-roboto",
+});
+
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const quicksand = Quicksand({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-quicksand",
 });
 
 export const metadata = {
@@ -17,7 +28,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={quicksand.className} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -44,7 +55,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${roboto.variable} font-roboto antialiased`}>
+      <body>
         <ThemeProvider>
           <CountriesProvider>
             <Navigation />

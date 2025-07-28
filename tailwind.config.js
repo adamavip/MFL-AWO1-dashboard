@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["var(--font-roboto)", "Roboto", "sans-serif"],
+        playfair: ["var(--font-playfair)", "Playfair Display", "serif"],
+        quicksand: ["var(--font-quicksand)", "Quicksand", "sans-serif"],
       },
     },
   },
